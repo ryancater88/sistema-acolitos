@@ -1,14 +1,31 @@
 import { Rloader } from "./rcomponent/script/rmodal.js"
 import { Rmodal } from "./rcomponent/script/rmodal.js"
+import { Geral } from "./main.js"
+
+export class Localstoragedata{
+  constructor(token){
+      this._token = token
+  }
+  set token(value){
+      this._token = value
+      localStorage.setItem('token', this._token)
+  }
+  get token(){
+      return localStorage.getItem('token')
+  }
+}
+
+const storageData = new Localstoragedata
+const token = storageData.token? storageData.token.replace('#', '%23'): null
 
 export class Requisicao{
     constructor(payload, path){
-        this._url = 'https://script.google.com/macros/s/AKfycbwAalhIoCgV2HRVLf1VeKvYCzihXhGGS4fi3CMi_WyUXZQecIvIfG31sqt5eJRzcEOz/exec?path='+path+'&local=4'
+        this._url = `https://script.google.com/macros/s/AKfycbyH-ANsGQ8Ri-XbVASu88WUdZbCZZQNxlGTdIv0mgCUszhiUiQk62eTZU5252Y2bXhOIA/exec?path=${path}&token=${token}`
         this.payload = payload
         this.response = ''
     }
    
-    get chamar(){
+      async chamar(){
         const loader = new Rloader
         loader.mostrar()
 
@@ -20,31 +37,30 @@ export class Requisicao{
 
         const url = this._url
 
-        fetch(url, opt)
+        await fetch(url, opt)
         .then(response => {
             return response.json()
         })
         .then(response => {
             this.response = response
+
+            if(response.dados.token){
+              const local = new Localstoragedata
+              local.token = response.dados.token
+            }
+
+            if(response.status == 401){
+              const modal = new Rmodal
+              modal.abrir('Erro', response.mensagem)
+              Geral.loginPage()
+            }
+
             if(response.status != 200){
                 const modal = new Rmodal
                 modal.abrir('Erro', response.mensagem || response.Mensagem)
             }
             loader.ocultar()
         })
-    }
-}
-
-export class Localstoragedata{
-    constructor(token){
-        this.token = token
-    }
-    set token(value){
-        this.token = value
-        localStorage.setItem('token', this.token)
-    }
-    get token(){
-        return localStorage.getItem('token')
     }
 }
 
