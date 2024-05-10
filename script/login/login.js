@@ -46,7 +46,9 @@ async function login(email, senha){
 
 async function esqueciSenha(email){
     const payload = {
-        email:email
+        email:email,
+        host:window.location.host,
+        port:window.location.port
     }
     const requisicao = new Requisicao(payload, 'enviartrocasenha')
    await requisicao.chamar()

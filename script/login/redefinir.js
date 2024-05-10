@@ -31,17 +31,18 @@ async function redefinirSenha(){
     }
     const payload = {
         token:token,
-        senha:elementosRedefinir.senha
+        senha:elementosRedefinir.senha,
+        host:window.location.hostname
     }
     const request = new Requisicao(payload, 'trocasenha')
 
     await request.chamar()
 
-    const modal = new Rmodal('Sucesso', 'Senha redefinida com sucesso')
-    modal.abrir()
-    
-
-    modal.botaoFechar.addEventListener('click', ()=>{
-        window.location.href = 'index.html'
-    })
+    if(request.response.status == 200){
+        const modal = new Rmodal('Sucesso', 'Senha redefinida com sucesso')
+        modal.abrir()
+        modal.botaoFechar.addEventListener('click', ()=>{
+            window.location.href = 'index.html'
+        })
+    }
 }
