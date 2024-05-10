@@ -1,5 +1,5 @@
-import { Rloader } from "./rcomponent/script/rmodal.js"
-import { Rmodal } from "./rcomponent/script/rmodal.js"
+import { Rloader } from "../rcomponent/script/rmodal.js"
+import { Rmodal } from "../rcomponent/script/rmodal.js"
 import { Geral } from "./main.js"
 
 export class Localstoragedata{
@@ -43,12 +43,11 @@ export class Requisicao{
         })
         .then(response => {
             this.response = response
-
-            if(response.dados.token){
-              const local = new Localstoragedata
-              local.token = response.dados.token
+          
+            if (response.dados && typeof response.dados.token !== 'undefined') {
+                storageData.token = response.dados.token;
             }
-
+              
             if(response.status == 401){
               const modal = new Rmodal
               modal.abrir('Erro', response.mensagem)

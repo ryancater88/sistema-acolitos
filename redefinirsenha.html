@@ -5,31 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./rcomponent/style/rcomponent.css">
     <link rel="stylesheet" href="./styles/main.css">
-    <title>Login</title>
+    <title>Redefinir Senha</title>
 </head>
 <body>
     <div class="backdrop-login">
         <section class="Login">
             <header class="login-header">
-                <p>Fazer login</p>
+                <p>Redefinição de Senha</p>
             </header>
             <div class="login-body">
                 <div class="login-form">
                     <div id="group-email" class="input-group">
-                        <label for="email">Email:</label>
-                        <input class="input-text" type="email" maxlength="50" id="email" required>
-                        <p class="msg-obrigatorio">Campo obrigatório*</p>
-                    </div>
-                    <div id="group-senha" class="input-group">
-                        <label for="Senha">Senha:</label>
+                        <label for="senha">Senha:</label>
                         <input class="input-text" type="password" maxlength="50" id="senha" required>
                         <p class="msg-obrigatorio">Campo obrigatório*</p>
                     </div>
-                    <div class="esqueceusenha-group">
-                        <a id="esqueceusenha" class="termo-tag">Esqueci minha senha</a>
+                    <div id="group-senha" class="input-group">
+                        <label for="confirmarsenha">Confirmar Senha:</label>
+                        <input class="input-text" type="password" maxlength="50" id="confirmarsenha" required>
+                        <p class="msg-obrigatorio">Campo obrigatório*</p>
                     </div>
                     <div class="button-group">
-                        <button id="loginbutton" class="confirm-button">Login</button>
+                        <button id="confirmarbutton" class="confirm-button">Confirmar</button>
                     </div>
                 </div>
                 <div class="login-img">
@@ -38,6 +35,6 @@
             </div>
         </section>
     </div>
-<script type="module" src="./script/login/login.js"></script>
+<script type="module" src="./script/login/redefinir.js"></script>
 </body>
 </html>

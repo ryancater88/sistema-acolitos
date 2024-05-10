@@ -1,6 +1,7 @@
 import { LoginController } from "./login-controller.js";
-import { Localstoragedata, Requisicao } from "../../objects.js";
+import { Requisicao } from "../objects.js";
 import { Rmodal } from "../../rcomponent/script/rmodal.js";
+import { Geral } from "../main.js";
 
 const elementosLogin = new LoginController
 
@@ -12,7 +13,7 @@ elementosLogin.loginbutton.addEventListener('click', ()=>{
     })
     
     if(obrigatoriosemBranco.length > 0){
-        return avisoCamposObrigatorios(obrigatorios)
+        return Geral.avisoCamposObrigatorios(obrigatorios)
     }
     
     return login(elementosLogin.email, elementosLogin.senha)
@@ -25,38 +26,11 @@ elementosLogin.esqueceusenha.addEventListener('click',()=>{
     emailValor == ''? emailBranco.push(document.querySelector("#email")):''
     
     if(emailBranco.length > 0){
-       return avisoCamposObrigatorios(emailBranco)
+       return Geral.avisoCamposObrigatorios(emailBranco)
     }
 
     esqueciSenha(emailValor)
 })
-
-function avisoCamposObrigatorios(campos){
-    console.log(campos)
-    campos.forEach(campo =>{
-        const msgObrigatorioCampo = campo.parentElement.querySelector('p')
-        const campoNaoPossuiValor = !campo.value
-        const campoNaoEstaEmVermelho = !campo.classList.contains('red-input')
-        
-        if (campoNaoPossuiValor && campoNaoEstaEmVermelho) {
-            campo.classList.add('red-input');
-            msgObrigatorioCampo.style.visibility = 'visible'
-            campo.addEventListener('input', removerAviso);
-        }
-    });
-}
-
-function removerAviso(event) {
-    const campo = event.target;
-    const msgObrigatorioCampo = campo.parentElement.querySelector('p')
-    const campoEstaEmVermelho = campo.classList.contains('red-input');
-
-    if (campoEstaEmVermelho) {
-        campo.classList.remove('red-input');
-        msgObrigatorioCampo.style.visibility = 'hidden'
-        campo.removeEventListener('input', removerAviso);
-    }
-}
 
 async function login(email, senha){
     const body ={
@@ -64,7 +38,10 @@ async function login(email, senha){
         senha:senha
     }
     const requisicao = new Requisicao(body, 'login')
-     await requisicao.chamar()   
+     await requisicao.chamar()
+
+     if(requisicao.response.status == 200){
+     Geral.dashboard()}
 }
 
 async function esqueciSenha(email){
