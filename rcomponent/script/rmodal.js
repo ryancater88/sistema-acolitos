@@ -16,26 +16,26 @@ export class Rmodal {
 		const page = document.querySelector('body');
 		var minimo = 1;
 		var maximo = 1000;
-		var numeroIntervalo = Math.random() * (maximo - minimo) + minimo;
+		var idGerado = Math.random() * (maximo - minimo) + minimo;
 
 		page.insertAdjacentHTML('beforeend',
 			`
-			<div class="rmodal-overlay" id="${numeroIntervalo}">
-			<div class="rmodal" id="${numeroIntervalo}">
-				<div class="rmodal-container" id="${numeroIntervalo}">
-					<div class="rmodal-header" id="${numeroIntervalo}">
-						<span class="rmodal-title" id="${numeroIntervalo}">${title}</span>
-						<div class="rmodal-closeBut"id="${numeroIntervalo}">
-							<button class="rmodal-closebutton" id="${numeroIntervalo}">X</button>
+			<div class="rmodal-overlay" id="${idGerado}">
+			<div class="rmodal" id="${idGerado}">
+				<div class="rmodal-container" id="${idGerado}">
+					<div class="rmodal-header" id="${idGerado}">
+						<span class="rmodal-title" id="${idGerado}">${title}</span>
+						<div class="rmodal-closeBut"id="${idGerado}">
+							<button class="rmodal-closebutton" id="${idGerado}">X</button>
 						</div>
 					</div>
-					<div class="rmodal-body" id="${numeroIntervalo}">
+					<div class="rmodal-body" id="${idGerado}">
 						${bodycontent}
 					</div>
-					<div class="rmodal-footer" id="${numeroIntervalo}">
-						<div class="rmodal-groupbutton" id="${numeroIntervalo}">
-							<button class="rmodal-primarybutton" id="${numeroIntervalo}">Salvar</button>
-							<button class="rmodal-secondarybutton" id="${numeroIntervalo}">Fechar</button>
+					<div class="rmodal-footer" id="${idGerado}">
+						<div class="rmodal-groupbutton" id="${idGerado}">
+							<button class="rmodal-primarybutton" id="${idGerado}">Salvar</button>
+							<button class="rmodal-secondarybutton" id="${idGerado}">Fechar</button>
 						</div>
 					</div>
 				</div>
@@ -44,17 +44,18 @@ export class Rmodal {
 			`
 		);
 
-		const buttonClose = document.querySelector(`.rmodal-closebutton[id="${numeroIntervalo}"]`);
-		const buttonPrimary = document.querySelector(`.rmodal-primarybutton[id="${numeroIntervalo}"]`);
-		const buttonSecondary = document.querySelector(`.rmodal-secondarybutton[id="${numeroIntervalo}"]`);
+		const buttonClose = document.querySelector(`.rmodal-closebutton[id="${idGerado}"]`);
+		const buttonPrimary = document.querySelector(`.rmodal-primarybutton[id="${idGerado}"]`);
+		const buttonSecondary = document.querySelector(`.rmodal-secondarybutton[id="${idGerado}"]`);
 		this.botaoFechar = buttonSecondary
+		this.idModal = idGerado
 
 		if (!havePrimaryButton) {
 			buttonPrimary.remove();
 		}
 
-		buttonClose.addEventListener('click', () => { this.fechar(numeroIntervalo); });
-		buttonSecondary.addEventListener('click', () => { this.fechar(numeroIntervalo); });
+		buttonClose.addEventListener('click', () => { this.fechar(idGerado); });
+		buttonSecondary.addEventListener('click', () => { this.fechar(idGerado); });
 	};
 }
 export class Rloader {
