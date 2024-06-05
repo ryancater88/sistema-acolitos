@@ -20,12 +20,6 @@ body{
 
 }
 
-#cabecalho{
-    background-color: var(--cor-principal);
-    padding: 0;
-    padding-left: 10px;
-    padding-right: 10px;
-}
 .menus{
     height: 100%;
 }
@@ -64,17 +58,6 @@ body{
     width: 100%;
 }
 
-.footer{
-    background-color: var(--cor-principal);
-    color: aliceblue;
-    display: flex;
-    flex-direction: row;
-    height: 56px;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-}
-
 .menu-desc{
     font-family: Arial, Helvetica, sans-serif;
     color: var(--cor-letras-titulo);
@@ -88,6 +71,7 @@ body{
     font-weight: 600;
     color: var(--cor-letras-titulo)
 }
+
 
 @media only screen and (max-width: 653px) {
     .group-menu{

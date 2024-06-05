@@ -1,6 +1,6 @@
-import { Rloader } from "../rcomponent/script/rmodal.js"
-import { Rmodal } from "../rcomponent/script/rmodal.js"
-import { Geral } from "./main.js"
+import { Rloader } from "./rcomponent/script/rmodal.js"
+import { Rmodal } from "./rcomponent/script/rmodal.js"
+import Geral from "./main.js"
 
 export class Localstoragedata{
   constructor(token){
@@ -70,6 +70,11 @@ export class Email{
     }
     static valido(field) {
       field? field = Email.formatar(field): field = null
+
+      if(!field){
+        return false
+      }
+
       const usuario = field.substring(0, field.indexOf("@"));
       const dominio = field.substring(field.indexOf("@")+ 1, field.length);
   
