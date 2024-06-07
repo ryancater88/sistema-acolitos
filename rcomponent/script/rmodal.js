@@ -48,6 +48,7 @@ export class Rmodal {
 		const buttonPrimary = document.querySelector(`.rmodal-primarybutton[id="${idGerado}"]`);
 		const buttonSecondary = document.querySelector(`.rmodal-secondarybutton[id="${idGerado}"]`);
 		this.botaoFechar = buttonSecondary
+		this.botaoSalvar = buttonPrimary
 		this.idModal = idGerado
 
 		if (!havePrimaryButton) {
