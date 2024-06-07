@@ -5,6 +5,8 @@
 body{
     background-color: aliceblue;
     background-image: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .item-lista__info{
@@ -57,7 +59,10 @@ body{
     flex-direction: column;
     align-items: center;
     height: 100%;
+    max-height: 600px;
     width: 100%;
+    margin-bottom: 10px;
+    flex: 1;
 }
 
 .lista{
@@ -80,12 +85,14 @@ body{
     height: 100%;
     width: 70%;
     max-width: 800px;
-    min-height: 480px;
+    min-height: 355px;
     display: flex;
     gap: 3%;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin:10px;
+    flex: 1;
 }
 
 .item-lista{
@@ -218,5 +225,12 @@ body{
     }
     .item-lista{
         font-size: 13px;
+    }
+}
+
+@media only screen and (max-height: 679px){
+    .rmodal{
+        height: 100%;
+        overflow-y: scroll;
     }
 }
