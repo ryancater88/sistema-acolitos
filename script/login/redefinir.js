@@ -1,7 +1,7 @@
 import { redefinirController } from "./redefinir-controller.js";
-import { Geral } from "../main.js";
-import { Requisicao } from "../objects.js";
+import { Requisicao } from "../../objects.js"
 import { Rmodal } from "../../rcomponent/script/rmodal.js";
+import Geral from "../../main.js";
 
 const elementosRedefinir = new redefinirController
 const url = window.location.href
@@ -18,7 +18,7 @@ elementosRedefinir._confirmarbutton.addEventListener('click', ()=>{
         return Geral.avisoCamposObrigatorios(obrigatorios)
     } 
     if(elementosRedefinir.senha != elementosRedefinir.confirmarsenha){
-        const modal = new Rmodal('Verifique', 'As senhas não são iguais, corrija.')
+        const modal = new Rmodal({titulo:'Atenção'}, 'As senhas não são iguais, corrija.')
         return modal.abrir()
     } 
     
@@ -39,7 +39,7 @@ async function redefinirSenha(){
     await request.chamar()
 
     if(request.response.status == 200){
-        const modal = new Rmodal('Sucesso', 'Senha redefinida com sucesso')
+        const modal = new Rmodal({titulo:'Sucesso'}, 'Senha redefinida com sucesso')
         modal.abrir()
         modal.botaoFechar.addEventListener('click', ()=>{
             window.location.href = 'index.html'

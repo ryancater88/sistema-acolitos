@@ -154,17 +154,17 @@ export class AcolitoForm{
         const modeloModal = `<form id=${this._id} class="modal-form" action="submit" context=${this._contexto}>
                                 <div class="form-input-group">
                                     <label for="Nome">Nome:</label>
-                                    <input type="text" class="form-input" id="nome" maxlength="70" required>
+                                    <input type="text" placeholder="Digite o seu nome" class="input-text" id="nome" maxlength="70" required>
                                     <p class="msg-obrigatorio">Obrigatório*</p>
                                 </div>
                                 <div class="form-input-group">
                                     <label for="datanascimento">Data Nascimento:</label>
-                                    <input type="date" class="form-input" id="datanascimento" required>
+                                    <input type="date"class="input-text" id="datanascimento" required>
                                     <p class="msg-obrigatorio">Obrigatório*</p>
                                 </div>
                                 <div class="form-input-group">
                                     <label for="sexo">Sexo:</label>
-                                <select name="sexo" id="sexo" required>
+                                <select name="sexo" id="sexo" class="input-text" required>
                                     <option  value="M">Masculino</option>
                                     <option value="F">Feminino</option>
                                 </select>
@@ -172,27 +172,27 @@ export class AcolitoForm{
                                 </div>
                                 <div class="form-input-group">
                                     <label for="Email">Email:</label>
-                                    <input type="email" class="form-input" id="email" maxlength="40" required>
+                                    <input type="email" placeholder="Digite o seu email" class="input-text" id="email" maxlength="40" required>
                                     <p class="msg-obrigatorio">Obrigatório*</p>
                                 </div>
                                 <div class="form-input-group">
                                     <label for="cpf">Cpf:</label>
-                                    <input type="cpf" class="form-input" id="cpf" maxlength="11" required>
+                                    <input type="cpf" placeholder="Digite o seu cpf" class="input-text" id="cpf" maxlength="11" required>
                                     <p class="msg-obrigatorio">Obrigatório*</p>
                                 </div>
                                 <div class="form-input-group">
                                     <label for="celular">Celular:</label>
-                                    <input type="tel" class="form-input" id="celular" maxlength="11" required>
+                                    <input type="tel" placeholder="Se menor de 18 anos, informar do responsável" class="input-text" id="celular" maxlength="11" required>
                                     <p class="msg-obrigatorio" class="msg-obrigatorio">Obrigatório*</p>
                                 </div>
                                 <div class="form-input-group oculto">
                                     <label for="responsavel">Responsável:</label>
-                                    <input type="text" class="form-input" id="responsavel" maxlength="60">
+                                    <input type="text" placeholder="Digite o nome do responsável" class="input-text" id="responsavel" maxlength="60">
                                     <p class="msg-obrigatorio">Obrigatório*</p>
                                 </div>
                             </form>`
 
-            const modal = new Rmodal('Acólito', modeloModal,1)
+            const modal = new Rmodal({titulo:'Acolito', cor:'#006b6b'}, modeloModal,1)
             modal.abrir()
 
             const nomeForm = document.querySelector(`form[id="${this._id}"]>div.form-input-group>input[id="nome"]`)

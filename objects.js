@@ -49,14 +49,13 @@ export class Requisicao{
             }
               
             if(response.status == 401){
-              const modal = new Rmodal
-              modal.abrir('Erro', response.mensagem)
+              const modal = new Rmodal({titulo:'Atenção'}, 'Sessão exipirada, faça login novamente')
               Geral.loginPage()
             }
 
             if(response.status != 200){
                 const modal = new Rmodal
-                modal.abrir('Erro', response.mensagem || response.Mensagem)
+                modal.abrir({titulo:'Atenção'}, response.mensagem || response.Mensagem)
             }
             loader.ocultar()
         })

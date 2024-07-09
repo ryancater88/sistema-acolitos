@@ -162,6 +162,7 @@ body{
     flex-direction: column;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
+    color: #006b6b;
 }
 
 .form-input{

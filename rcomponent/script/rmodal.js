@@ -1,6 +1,6 @@
 export class Rmodal {
-	constructor(titulo, corpo, botaoSalvar, idModal) {
-		this.titulo = titulo,
+	constructor({titulo, cor}, corpo, botaoSalvar, idModal) {
+			this.titulo = {titulo, cor},
 			this.corpo = corpo,
 			this.botaoSalvar = botaoSalvar,
 			this.botaoFechar = 
@@ -12,7 +12,7 @@ export class Rmodal {
 	}
 
 
-	abrir(title = this.titulo, bodycontent = this.corpo, havePrimaryButton = this.botaoSalvar) {
+	abrir(title = this.titulo.titulo, bodycontent = this.corpo, havePrimaryButton = this.botaoSalvar) {
 		const page = document.querySelector('body');
 		var minimo = 1;
 		var maximo = 1000;
@@ -24,7 +24,7 @@ export class Rmodal {
 			<div class="rmodal" id="${idGerado}">
 				<div class="rmodal-container" id="${idGerado}">
 					<div class="rmodal-header" id="${idGerado}">
-						<span class="rmodal-title" id="${idGerado}">${title}</span>
+						<span class="rmodal-title" ${this.titulo.cor? 'style="color:#006b6b"':''} id="${idGerado}">${title}</span>
 						<div class="rmodal-closeBut"id="${idGerado}">
 							<button class="rmodal-closebutton" id="${idGerado}">X</button>
 						</div>
@@ -47,8 +47,10 @@ export class Rmodal {
 		const buttonClose = document.querySelector(`.rmodal-closebutton[id="${idGerado}"]`);
 		const buttonPrimary = document.querySelector(`.rmodal-primarybutton[id="${idGerado}"]`);
 		const buttonSecondary = document.querySelector(`.rmodal-secondarybutton[id="${idGerado}"]`);
+		const titulo = document.querySelector(`.rmodal-title[id="${idGerado}"]`)
 		this.botaoFechar = buttonSecondary
 		this.botaoSalvar = buttonPrimary
+		this.titulo = titulo
 		this.idModal = idGerado
 
 		if (!havePrimaryButton) {
