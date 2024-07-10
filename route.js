@@ -8,6 +8,11 @@ const routes = {
 };
 
 const loadContent = async (path) => {
+    const scriptsCarregados = document.querySelectorAll('script.imported-script')
+    const stylesCarregados = document.querySelectorAll('link.imported-style')
+
+    scriptsCarregados ? scriptsCarregados.forEach(script => {script.remove() }):''
+    stylesCarregados ? stylesCarregados.forEach(style => {style.remove()}): ''
 
     const response = await fetch(path);
     const content = await response.text();
@@ -19,16 +24,15 @@ const loadContent = async (path) => {
      // Carregar CSS
      const cssLinks = tempDiv.querySelectorAll('link[rel="stylesheet"]');
      cssLinks.forEach(link => {
-         const regex = /([^\/]+\.js)$/
-         const hrefFormated = link.href.match(regex)
-
-         if(!hrefFormated){
-            return
-         }
-
          const newLink = document.createElement('link');
          newLink.rel = link.rel;
-         newLink.href = `pages/login/${hrefFormated[0]}`
+         newLink.className = 'imported-style'
+
+        if(!link.href){
+            return
+        }
+
+         newLink.href = link.href
          newLink.href? document.querySelector('head').append(newLink): ''
      });
  
@@ -36,6 +40,12 @@ const loadContent = async (path) => {
      const scripts = tempDiv.querySelectorAll('script');
      scripts.forEach(script => {
          const newScript = document.createElement('script');
+         newScript.className = 'imported-script'
+
+        if(!script.src){
+            return
+        }
+
          newScript.src = script.src
          newScript.type = script.type
          document.querySelector('body').append(newScript)
