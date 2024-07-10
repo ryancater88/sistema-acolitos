@@ -54,8 +54,8 @@ export class Requisicao{
             }
 
             if(response.status != 200){
-                const modal = new Rmodal
-                modal.abrir({titulo:'Atenção'}, response.mensagem || response.Mensagem)
+                const modal = new Rmodal({titulo:'Atenção'}, response.mensagem || 'Erro de servidor! Mensagem de erro não retornada')
+                modal.abrir()
             }
             loader.ocultar()
         })

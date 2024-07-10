@@ -5,8 +5,11 @@ import Geral from "../../main.js";
 
 const elementosRedefinir = new redefinirController
 const url = window.location.href
-const urlParams = new URLSearchParams(new URL(url).search)
-const token = urlParams.get('token')
+const paramsString = url.split('?')[1];
+const urlSearchParams = paramsString? new URLSearchParams(paramsString): ''
+const params = urlSearchParams? Object.fromEntries(urlSearchParams.entries()): ''
+const token =params? params.token:''
+
 
 elementosRedefinir._confirmarbutton.addEventListener('click', ()=>{   
     const obrigatorios = document.querySelectorAll('[required]')

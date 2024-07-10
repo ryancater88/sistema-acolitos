@@ -1,44 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="rcomponent/style/rcomponent.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" href="source/logoPSPA.ico" type="image/x-icon">
-    <title>Login</title>
 </head>
+
 <body>
-    <div class="backdrop-login">
-        <section class="Login">
-            <header class="login-header">
-                <p>Fazer login</p>
-            </header>
-            <div class="login-body">
-                <div class="login-form">
-                    <div id="group-email" class="input-group">
-                        <label for="email">Email:</label>
-                        <input class="input-text" type="email" maxlength="50" id="email" required>
-                        <p class="msg-obrigatorio">Campo obrigatório*</p>
-                    </div>
-                    <div id="group-senha" class="input-group">
-                        <label for="Senha">Senha:</label>
-                        <input class="input-text" type="password" maxlength="50" id="senha" required>
-                        <p class="msg-obrigatorio">Campo obrigatório*</p>
-                    </div>
-                    <div class="esqueceusenha-group">
-                        <a id="esqueceusenha" class="termo-tag">Esqueci minha senha</a>
-                    </div>
-                    <div class="button-group">
-                        <button id="loginbutton" class="confirm-button">Login</button>
-                    </div>
-                </div>
-                <div class="login-img">
-                    <img id="logopspa" src="./source/logoPSPA.png" alt="Logo PSPA">
-                </div>
-            </div>
-        </section>
-    </div>
-<script type="module" src="./script/login/login.js"></script>
+    <section id="content">
+
+    </section>
+    <script src="route.js" type="module"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="pages/login/login.css">
+<title>Login</title>
+<body>
+    <div class="backdrop-login">
+        <section class="Login">
+            <header class="login-header">
+                <p>Fazer login</p>
+            </header>
+            <div class="login-body">
+                <div class="login-form">
+                    <div id="group-email" class="input-group">
+                        <label for="email">Email:</label>
+                        <input class="input-text" type="email" maxlength="50" id="email" required>
+                        <p class="msg-obrigatorio">Campo obrigatório*</p>
+                    </div>
+                    <div id="group-senha" class="input-group">
+                        <label for="Senha">Senha:</label>
+                        <input class="input-text" type="password" maxlength="50" id="senha" required>
+                        <p class="msg-obrigatorio">Campo obrigatório*</p>
+                    </div>
+                    <div class="esqueceusenha-group">
+                        <a id="esqueceusenha" class="termo-tag">Esqueci minha senha</a>
+                    </div>
+                    <div class="button-group">
+                        <button id="loginbutton" class="confirm-button">Login</button>
+                    </div>
+                </div>
+                <div class="login-img">
+                    <img id="logopspa" src="../../source/logoPSPA.png" alt="Logo PSPA">
+                </div>
+            </div>
+        </section>
+    </div>
+<script type="module" src="pages/login/login.js"></script>
+</body>
+</html>

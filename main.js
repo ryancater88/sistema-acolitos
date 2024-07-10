@@ -1,18 +1,15 @@
 import { Cpf, Email, Requisicao } from "./objects.js";
 import { Rloader, Rmodal } from "../rcomponent/script/rmodal.js";
 import { Localstoragedata } from "./objects.js";
-import { Cabecalho } from "./script/cabecalhoRodape/cabecalhoRodape-controller.js";
-import { Rodape } from "./script/cabecalhoRodape/cabecalhoRodape-controller.js";
-
 
 export default class Geral{
 
     static loginPage(){
-        window.location.href = "index.html"
+        window.location.href = "/#/login"
     }
 
     static dashboard(){
-        window.location.href = "main.html"
+        window.location.href = "/#/dashboard"
     }
 
     static logOff(){

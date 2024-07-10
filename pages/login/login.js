@@ -71,8 +71,8 @@ async function esqueciSenha(){
     await requisicao.chamar()
 
     if(requisicao.response.status == 200){
-        const modal = new Rmodal
-        modal.abrir('Atenção', requisicao.response.mensagem)
+        const modal = new Rmodal({titulo:'Atenção'}, requisicao.response.mensagem)
+        modal.abrir()
     }
    
 }
