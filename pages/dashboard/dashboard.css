@@ -71,7 +71,6 @@ body{
     color: var(--cor-letras-titulo)
 }
 
-
 @media only screen and (max-width: 653px) {
     .group-menu{
         display: flex;
