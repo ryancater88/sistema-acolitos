@@ -20,7 +20,7 @@ body{
 }
 
 .menus{
-    min-height: calc(100% - 166px)
+    height: 100%;
 }
 
 .group-menu{
